@@ -5,6 +5,10 @@ import lombok.experimental.Accessors;
 
 /**
  * 响应的统一封装格式
+ * 状态码
+ * 状态码解释
+ * 传输数据
+ * 响应时间戳
  *
  * @param <T>
  */
