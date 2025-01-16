@@ -22,7 +22,7 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
-        <!--自动生成实体类 - 一键生成-->
+        <!--自动生成实体类 -> 一键生成-->
         <javaModelGenerator targetPackage="${package.name}.entities" targetProject="src/main/java"/>
 
         <sqlMapGenerator targetPackage="${package.name}.mapper" targetProject="src/main/java"/>

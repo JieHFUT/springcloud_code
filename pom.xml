@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>a-cloud-crud</module>
+        <module>b-cloud-provider-payment-8001</module>
     </modules>
 
     <properties>
