@@ -1,5 +1,7 @@
 package com.jiehfut.cloud;
 
+import com.jiehfut.cloud.entities.PayDTO;
+import com.jiehfut.cloud.resp.ResultData;
 import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

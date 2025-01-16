@@ -1,0 +1,24 @@
+这个工程的作用是提供向外暴露通用的组件、API、接口、工具类...
+其不是一个微服务，只是对所有工程中重复部分的抽取，重构
+
+如本项目中：
+b-cloud-provider-payment-8001 工程中
+    1.entities.PayDTO：给前端交互的数据传输对象
+    2.exception：统一异常处理
+    3.resp：响应的统一封装
+c-cloud-consumer-order-80 工程中
+    1.entities.PayDTO：给前端交互的数据传输对象
+    2.exception：统一异常处理
+    3.resp：响应的统一封装
+这些组件被提取封装到该工程中，由 d-cloud-api-commons 统一管理维护
+该工程通过 maven 命令 install，将打包后的依赖下载到本地，通过依赖导入 a & b 工程
+
+在 b-cloud-provider-payment-8001
+   c-cloud-consumer-order-80 的 pom.xml 中
+引入自己定义的 api 通用包
+    <dependency>
+        <groupId>com.jiehfut.cloud</groupId>
+        <artifactId>d-cloud-api-commons</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+自此其他工程即可将重复的代码抽取出来，进行代码解耦
