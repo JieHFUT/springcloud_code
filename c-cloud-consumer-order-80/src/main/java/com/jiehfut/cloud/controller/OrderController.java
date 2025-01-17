@@ -124,6 +124,37 @@ public class OrderController {
         return instances.get(0).getServiceId()+":"+instances.get(0).getPort();
     }
 
+    /**
+     * 默认轮询算法进行负载均衡，还有一种是随机选择
+     *
+     * 负载均衡算法：rest 接口第几次请求数 % 服务器集群总的数量 = 实际调用服务器位置下标，每次服务重新启动后 rest 接口计数从 1开始
+     * List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service")
+     * instances[0] = 127.0.0.1:8002
+     * instances[1] = 127.0.0.1:8001
+     * 8001 & 8002 称为一个集群，这个集群有 2台机器，集群总数是 2，按照轮询请求
+     * RoundRobinLoadBalancer：轮询集群方式
+     * RandomLoadBalancer：随机找一个微服务进行请求
+     *
+     * 这两个接口都实现了 ReactorServiceInstanceLoadBalancer 空接口
+     * public interface ReactorServiceInstanceLoadBalancer extends ReactorLoadBalancer<ServiceInstance> { }
+     * public interface ReactorLoadBalancer<T> extends ReactiveLoadBalancer<T> {}
+     *
+     * The ReactiveLoadBalancer implementation that is used by default is RoundRobinLoadBalancer.
+     * To switch to a different implementation, either for selected services or all of them, you can use the custom LoadBalancer configurations mechanism.
+     * For example, the following configuration can be passed via @LoadBalancerClient annotation to switch to using the RandomLoadBalancer:
+     *
+     * public class CustomLoadBalancerConfiguration {
+     * 	  @Bean
+     *    ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment,
+     * 		LoadBalancerClientFactory loadBalancerClientFactory) {
+     * 		String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
+     * 		return new RandomLoadBalancer(loadBalancerClientFactory
+     * 				.getLazyProvider(name, ServiceInstanceListSupplier.class),
+     * 				name);
+     *    }
+     * }
+     *
+     */
 
 
 
