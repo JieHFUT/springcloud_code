@@ -17,7 +17,12 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
 
-    public static final String PaymentSrv_URL = "http://localhost:8001"; //先写死，硬编码
+    // 在引入服务注册中心后，使用服务治理功能，实现微服务之间的动态注册与发现
+    // public static final String PaymentSrv_URL = "http://localhost:8001"; //先写死，硬编码
+
+    // 实现 consul 的微服务注册于发现时候 - 实现动态注册，解决硬编码
+    // consul 天生支持负载均衡，需要配置一个注解 @LoadBalanced 在 RestTemplate 上
+    public static final String PaymentSrv_URL = "http://cloud-payment-service";
 
     @Resource
     private RestTemplate restTemplate;
@@ -72,8 +77,6 @@ public class OrderController {
     public ResultData getPayInfoList() {
         return restTemplate.getForObject(PaymentSrv_URL + "/pay/get", ResultData.class);
     }
-
-
 
 
 }

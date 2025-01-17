@@ -2,6 +2,7 @@ package com.jiehfut.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * 两个独立的微服务之间的调用
@@ -19,6 +20,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@EnableDiscoveryClient // 第三步（第一步在 pom.xml，第二步在 application.yml）
 public class Main80 {
     public static void main(String[] args) {
         // 主启动类
