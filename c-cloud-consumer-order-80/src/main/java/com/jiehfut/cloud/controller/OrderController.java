@@ -3,8 +3,12 @@ package com.jiehfut.cloud.controller;
 import com.jiehfut.cloud.entities.PayDTO;
 import com.jiehfut.cloud.resp.ResultData;
 import jakarta.annotation.Resource;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 /**
  * post   - pay/add      - Pay
@@ -77,6 +81,50 @@ public class OrderController {
     public ResultData getPayInfoList() {
         return restTemplate.getForObject(PaymentSrv_URL + "/pay/get", ResultData.class);
     }
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * 8001 & 8002 等微服务已经注册进入（注册中心已经完成分布式配置并且完成数据持久化）注册中心
+     * 消费者（客户端）发出的请求需要经过客户端负载均衡后自己选择向哪一个微服务请求
+     * @return
+     */
+    @GetMapping("/consumer/pay/get/info")
+    public String getInfoByConsul() {
+        return restTemplate.getForObject(PaymentSrv_URL + "/pay/get/info", String.class);
+    }
+
+
+    /**
+     * 如何做到在客户端能够获取已经注册的服务提供者的清单呢？
+     * 使用一个组件：DiscoveryClient
+     */
+    @Resource
+    private DiscoveryClient discoveryClient;
+    @GetMapping("/consumer/discovery")
+    public String discovery()
+    {
+        List<String> services = discoveryClient.getServices(); // 获取所有的服务微服务清单
+        for (String element : services) {
+            System.out.println(element);
+        }
+        System.out.println("===================================");
+        List<ServiceInstance> instances = discoveryClient.getInstances("cloud-payment-service"); // 获取这个名称的服务微服务清单
+        for (ServiceInstance element : instances) {
+            System.out.println(element.getServiceId()+"\t"+element.getHost()+"\t"+element.getPort()+"\t"+element.getUri());
+        }
+        return instances.get(0).getServiceId()+":"+instances.get(0).getPort();
+    }
+
+
 
 
 }

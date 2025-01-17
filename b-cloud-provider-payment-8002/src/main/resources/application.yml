@@ -1,0 +1,53 @@
+#server:
+#  port: 8001
+#
+## ==========applicationName + druid-mysql8 driver===================
+#spring:
+#  application:
+#    name: cloud-payment-service # 微服务名称
+#
+## 第二步：将该微服务入住进我们的 consul，以 cloud-payment-service 为名
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        prefer-ip-address: true # 优先使用服务 ip 进行注册
+#        service-name: ${spring.application.name}
+#
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/springcloud?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 959452
+#
+#
+## ========================mybatis===================
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.jiehfut.cloud.entities
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+
+server:
+  port: 8002
+
+# ==========applicationName + druid-mysql8 driver===================
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: 959452
+  profiles:
+    active: dev # 多环境配置加载内容 dev/prod,不写就是默认default配置
+
+# ========================mybatis===================
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.jiehfut.cloud.entities
+  configuration:
+    map-underscore-to-camel-case: true

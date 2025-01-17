@@ -13,7 +13,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 
 @Slf4j
@@ -98,10 +97,7 @@ public class PayCntroller {
      * 2.实现分布式配置的动态刷新
      * 3.如何做到 consul 服务关闭后重启仍然保存配置的 key-value 键值对
      *   consul 的配置持久化 ?
-     *   （1）首先你的 consul 的安装目录必需不含中文和任何空格
-     *   （2）在你的安装目录下面创建一个文件 consul_start.bat & 一个用于持久化的文件
-     *   （3）文件里面内容：
-     *   （4）右键管理员运行该文件
+     *
      */
 
 

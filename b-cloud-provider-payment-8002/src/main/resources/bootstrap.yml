@@ -11,11 +11,3 @@ spring:
       config: # 分布式配置
         profile-separator: '-' # default value is ","，we update '-'
         format: YAML
-        watch: # 设置分布式配饰动态刷新时间
-          wait-time: 1
-
-  # 下面是在 consul 服务中建立文件夹，在里面放键值对
-  # config/cloud-payment-service/data
-  #       /cloud-payment-service-dev/data
-  #       /cloud-payment-service-prod/data
-

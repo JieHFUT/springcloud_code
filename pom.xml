@@ -13,6 +13,7 @@
         <module>b-cloud-provider-payment-8001</module>
         <module>c-cloud-consumer-order-80</module>
         <module>d-cloud-api-commons</module>
+        <module>b-cloud-provider-payment-8002</module>
     </modules>
 
     <properties>
