@@ -16,7 +16,7 @@ import java.util.List;
  * 1.方法签名一致
  * 2.路径一致
  */
-@FeignClient("cloud-payment-service") // 声明这是哪一个微服务的 feign 接口
+@FeignClient(value = "cloud-payment-service") // 声明这是哪一个微服务的 feign 接口
 public interface PayFeignApi {
 
 
@@ -38,4 +38,13 @@ public interface PayFeignApi {
 
     @GetMapping("/pay/get/info")
     public String getInfoByConsul();
+
+    /**
+     * 使用断路器的 feign 接口
+     * Resilience4j CircuitBreaker 的例子
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/circuit/{id}")
+    public String myCircuit(@PathVariable("id") Integer id);
 }

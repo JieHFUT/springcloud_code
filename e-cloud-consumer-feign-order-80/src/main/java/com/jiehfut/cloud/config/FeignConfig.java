@@ -27,7 +27,7 @@ public class FeignConfig {
     }
 
     /**
-     * 对请求和响应进行GZIP压缩
+     * 对请求和响应进行 GZIP压缩
      * Spring Cloud OpenFeign支持对请求和响应进行 GZIP压缩，以减少通信过程中的性能损耗。
      * 通过下面的两个参数设置，就能开启请求与相应的压缩功能：
      * spring.cloud.openfeign.compression.request.enabled=true
@@ -62,10 +62,10 @@ public class FeignConfig {
      *     Accept-Encoding: gzip
      *     Accept-Encoding: deflate
      *     ---> END HTTP (0-byte body)
-     *     <--- ERROR SocketTimeoutException: Read timed out (4254ms
+     *     <--- ERROR SocketTimeoutException: Read timed out (4254ms)
      *     ava.net.SocketTimeoutException: Read timed out
      *   （2）看到三次请求，openfeign 的重试请求
-     * 5.
+     * 4.
      */
 
     // 配置日志 bean 组件
@@ -73,6 +73,11 @@ public class FeignConfig {
     Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
+
+    /**
+     * 残留问题：如果某一个微服务发生异常不能响应了，如何表明？
+     * 也就是如何实现服务的降级？
+     */
 }
 
 
