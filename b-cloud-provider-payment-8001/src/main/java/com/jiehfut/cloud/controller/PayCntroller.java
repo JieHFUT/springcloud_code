@@ -1,6 +1,7 @@
 package com.jiehfut.cloud.controller;
 
 
+import cn.hutool.core.date.DateUtil;
 import com.jiehfut.cloud.entities.Pay;
 import com.jiehfut.cloud.entities.PayDTO;
 import com.jiehfut.cloud.resp.ResultData;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -43,6 +45,7 @@ public class PayCntroller {
         return add == 1 ? ResultData.success("插入成功") : ResultData.fail("-1", "插入失败");
     }
 
+
     @DeleteMapping("/pay/del/{id}")
     @Operation(summary = "删除", description = "根据主键 ID 删除流水记录")
     public ResultData<String> deletePay(@PathVariable("id") Integer id) {
@@ -63,6 +66,11 @@ public class PayCntroller {
     @GetMapping("/pay/get/{id}")
     @Operation(summary = "根据主键 ID 来获取一条流水记录")
     public ResultData<Pay> getPayById(@PathVariable("id") Integer id) {
+        // 主动暂停 62 秒测试 openfeign 的超时功能
+        System.out.println("此次根据 id 获取流水记录是端口：" + port + "; time = " + DateUtil.now());
+        try { TimeUnit.SECONDS.sleep(62); } catch (InterruptedException e) { e.printStackTrace();}
+        // 测试结果表示 openfeign 的默认超时时间是 60 s
+
         Pay pay = payService.findById(id);
         return ResultData.success(pay);
     }
@@ -71,6 +79,7 @@ public class PayCntroller {
     @Operation(summary = "获取全部流水", description = "获取全部流水记录")
     public ResultData<List<Pay>> getPayList() {
         List<Pay> allPays = payService.findAll();
+
         return ResultData.success(allPays);
     }
 
@@ -88,6 +97,7 @@ public class PayCntroller {
      */
     @Value("${server.port}")
     private String port;
+
     @GetMapping("/pay/get/info")
     public String getInfoByConsul(@Value("${jiehfut.info}") String jiehfutInfo) {
         return "jiehfutInfo = " + jiehfutInfo + "; port = " + port;

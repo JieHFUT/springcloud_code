@@ -87,6 +87,7 @@ public class PayCntroller {
      */
     @Value("${server.port}")
     private String port;
+
     @GetMapping("/pay/get/info")
     public String getInfoByConsul(@Value("${jiehfut.info}") String jiehfutInfo) {
         return "jiehfutInfo = " + jiehfutInfo + "; port = " + port;
