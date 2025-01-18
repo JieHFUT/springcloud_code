@@ -18,6 +18,27 @@
     </properties>
 
     <dependencies>
+        <!--
+            httpclient5
+            openfeign 默认使用的是 HttpURLConnection，使用 Apache HttpClient5 替换，以提高性能
+            1.关闭 openfeign 的重试机制
+            2.添加 httpclient5 && feign-hc5 依赖
+            3.在 .yml 中进行 Apache HttpClient5 配置开启
+            4.spring.cloud.openfeign.httpclient.hc5.enabled = true
+        -->
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <version>5.3</version>
+        </dependency>
+        <!-- feign-hc5-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-hc5</artifactId>
+            <version>13.1</version>
+        </dependency>
+
+
         <!--引入 openfeign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
