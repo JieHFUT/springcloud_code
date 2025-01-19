@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 测试断路器的控制层 - 兜底
+ *
  * Resilience4j CircuitBreaker 的例子
  * 在 PayFeignApi 接口类中已经有下面接口
  */
