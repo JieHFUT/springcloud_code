@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Resilience4j CircuitBreaker 的例子
  * 在 PayFeignApi 接口类中已经有下面接口
  */
-
 @RestController
 public class OrderCircuitController {
     @Resource
