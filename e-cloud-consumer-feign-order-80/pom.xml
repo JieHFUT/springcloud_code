@@ -18,6 +18,18 @@
     </properties>
 
     <dependencies>
+        <!--resilience4j-ratelimiter（限流的依赖）-->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-ratelimiter</artifactId>
+        </dependency>
+
+        <!--resilience4j-bulkhead （隔离机制-信号量仓壁）-->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-bulkhead</artifactId>
+        </dependency>
+
         <!--断路器的依赖引入-->
         <!--resilience4j-circuitbreaker-->
         <dependency>
