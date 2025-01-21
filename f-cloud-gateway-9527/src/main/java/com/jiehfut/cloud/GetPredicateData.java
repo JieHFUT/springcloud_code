@@ -42,14 +42,12 @@ public class GetPredicateData {
      *             - Host=**.baidu.com,**.jieHFUT.cloud
      *             # 网关的核心之二（7） => 通过 predicate 进行 Path-Route-Predicate 断言（表示请求路径匹配成功网关才会放行请求）
      *             - Path=/pay/gateway/get/**
-     *             
-     *
-     *
-     *
-     *
-     *
-     *
-     *
+     *             # 网关的核心之二（8） => 通过 predicate 进行 Query-Route-Predicate 断言（表示请求需要携带该参数（参数可以为正则）网关才会放行请求）
+     *             - Query=colour, green
+     *             # 网关的核心之二（9） => 通过 predicate 进行 RemoteAddr-Route-Predicate 断言（表示请求需要是该网络号内，网关才会放行请求）
+     *             - RemoteAddr=192.168.124.1/24 # 外部访问我的 IP 限制，最大跨度不超过32，目前是1~24它们是 CIDR 表示法。
+     *             # 网关的核心之二（10） => 通过 predicate 进行 Method-Route-Predicate 断言（表示请求需要是该方法，网关才会放行请求）
+     *             - Method=GET,POST # 限制请求方法
      *
      *
      */
