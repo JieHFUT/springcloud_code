@@ -37,24 +37,22 @@ public class PayGateWayController {
 
 
     /**
-     * 测试在使用网关的过程中，对请求转发到控制器方法的前后的处理
-     * 显示请求头中的参数
+     * 测试在使用网关的过程中，对请求转发到控制器方法的前后的处理 = filter
+     * 如果请求头中有 X-Request-jieHFUT1 || X-Request-jieHFUT2 就将其显示请求头中的参数
      * @param request
      * @return
      */
     @GetMapping(value = "/pay/gateway/filter")
-    public ResultData<String> getGatewayFilter(HttpServletRequest request)
-    {
+    public ResultData<String> getGatewayFilter(HttpServletRequest request) {
         String result = "";
         Enumeration<String> headers = request.getHeaderNames();
-        while(headers.hasMoreElements())
-        {
+        while(headers.hasMoreElements()) {
             String headName = headers.nextElement();
             String headValue = request.getHeader(headName);
             System.out.println("请求头名: " + headName +"\t\t\t"+"请求头值: " + headValue);
-            if(headName.equalsIgnoreCase("X-Request-atguigu1")
-                    || headName.equalsIgnoreCase("X-Request-atguigu2")) {
-                result = result+headName + "\t " + headValue +" ";
+            if(headName.equalsIgnoreCase("X-Request-jieHFUT1")
+                    || headName.equalsIgnoreCase("X-Request-jieHFUT2")) {
+                result = result+headName + "\t " + headValue + " ";
             }
         }
         return ResultData.success("getGatewayFilter 过滤器 test： "+result+" \t "+ DateUtil.now());

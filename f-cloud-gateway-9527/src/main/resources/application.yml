@@ -39,3 +39,14 @@ spring:
           uri: lb://cloud-payment-service
           predicates:
             - Path=/pay/gateway/info/**             # 断言，路径相匹配的进行路由（true 可以访问）
+
+        # 测试通过网关的过滤器对控制层方法进行控制（8001 网关控制器第三个方法）
+        - id: pay_routh3 # pay_routh3
+          uri: lb://cloud-payment-service                #匹配后提供服务的路由地址
+          predicates:
+            - Path=/pay/gateway/filter/**              # 断言，路径相匹配的进行路由
+          filters:
+            - AddRequestHeader=X-Request-jieHFUT1, jieHFUTValue1  # 添加请求头 k-v，若一头含有多参则重写一行设置
+            - AddRequestHeader=X-Request-jieHFUT2, jieHFUTValue2
+            - RemoveRequestHeader=sec-fetch-site # 删除指定的请求头信息
+            - SetRequestHeader=sec-fetch-mode, update-jieHFUT # 更新指定的请求头信息
