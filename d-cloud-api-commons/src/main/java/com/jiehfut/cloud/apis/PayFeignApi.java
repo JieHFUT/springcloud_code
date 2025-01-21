@@ -16,10 +16,10 @@ import java.util.List;
  * 1.方法签名一致
  * 2.路径一致
  */
-@FeignClient(value = "cloud-payment-service") // 声明这是哪一个微服务的 feign 接口
+// @FeignClient(value = "cloud-payment-service") // 声明这是哪一个微服务的 feign 接口
+                                              // 自己人内部，自己访问自己，写微服务名字OK，外部调用需要调用网关
+@FeignClient(value = "cloud-gateway") // 暴露的接口被调用后，会调用网关进行处理
 public interface PayFeignApi {
-
-
 
     @PostMapping("/pay/add")
     public ResultData<String> addPay(@RequestBody PayDTO payDTO);
@@ -72,5 +72,21 @@ public interface PayFeignApi {
      */
     @GetMapping(value = "/pay/micrometer/{id}")
     public String myMicrometer(@PathVariable("id") Integer id);
-    
+
+
+    /**
+     * GateWay进行网关测试案例01
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/get/{id}")
+    public ResultData getById(@PathVariable("id") Integer id);
+
+
+    /**
+     * GateWay进行网关测试案例02
+     * @return
+     */
+    @GetMapping(value = "/pay/gateway/info")
+    public ResultData<String> getGatewayInfo();
 }
