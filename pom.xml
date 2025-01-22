@@ -20,6 +20,7 @@
         <module>h-cloud-alibaba-consumer-nacos-order-83</module>
         <module>g-cloud-alibaba-provider-payment-9002</module>
         <module>i-cloud-alibaba-config-nacos-client-3377</module>
+        <module>j-cloud-alibaba-sentinel-service-8401</module>
     </modules>
 
     <properties>
