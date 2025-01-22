@@ -1,0 +1,11 @@
+server:
+  port: 9001
+
+# 配置 9001 服务提供者入住我们的 8848 Nacos 服务器
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置 Nacos 地址
