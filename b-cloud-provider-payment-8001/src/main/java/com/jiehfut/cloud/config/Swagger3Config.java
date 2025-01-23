@@ -9,19 +9,16 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 配置 swagger3
- * 微服务分组：什么什么请求是什么模块
+ * 微服务分组：什么请求 是什么模块
  */
 @Configuration
-public class Swagger3Config
-{
+public class Swagger3Config {
     @Bean
-    public GroupedOpenApi PayApi()
-    {
+    public GroupedOpenApi PayApi() {
         return GroupedOpenApi.builder().group("支付微服务模块").pathsToMatch("/pay/**").build();
     }
     @Bean
-    public GroupedOpenApi OtherApi()
-    {
+    public GroupedOpenApi OtherApi() {
         return GroupedOpenApi.builder().group("其它微服务模块").pathsToMatch("/other/**", "/others").build();
     }
     /*@Bean
@@ -32,8 +29,7 @@ public class Swagger3Config
 
 
     @Bean // 文档描述说明
-    public OpenAPI docsOpenApi()
-    {
+    public OpenAPI docsOpenApi() {
         return new OpenAPI()
                 // 项目说明
                 .info(new Info().title("cloud2024")
