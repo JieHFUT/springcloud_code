@@ -110,8 +110,7 @@ public class OrderController {
     @Resource
     private DiscoveryClient discoveryClient;
     @GetMapping("/consumer/discovery")
-    public String discovery()
-    {
+    public String discovery() {
         List<String> services = discoveryClient.getServices(); // 获取所有的服务微服务清单
         for (String element : services) {
             System.out.println(element);
@@ -123,6 +122,14 @@ public class OrderController {
         }
         return instances.get(0).getServiceId()+":"+instances.get(0).getPort();
     }
+    /**
+         cloud-consumer-order
+         cloud-payment-service
+         consul
+         ===================================
+         cloud-payment-service	jieHFUT	8001	http://jieHFUT:8001
+         cloud-payment-service	jieHFUT	8002	http://jieHFUT:8002
+     */
 
     /**
      * 默认轮询算法进行负载均衡，还有一种是随机选择

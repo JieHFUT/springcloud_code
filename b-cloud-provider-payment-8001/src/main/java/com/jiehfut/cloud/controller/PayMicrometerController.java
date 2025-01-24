@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class PayMicrometerController
-{
+public class PayMicrometerController {
     /**
      * Micrometer(Sleuth)进行链路监控的例子
      * @param id

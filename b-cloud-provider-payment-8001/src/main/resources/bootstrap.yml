@@ -9,7 +9,8 @@ spring:
       discovery:
         service-name: ${spring.application.name}
       config: # 分布式配置
-        profile-separator: '-' # default value is ","，we update '-'
+        # default value is ","，we update '-'
+        profile-separator: '-'
         format: YAML
         watch: # 设置分布式配饰动态刷新时间
           wait-time: 1
