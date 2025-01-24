@@ -20,7 +20,7 @@
 
     <dependencies>
         <!--不是业务模块，不是 springboot，不使用父工程的依赖-->
-        <!--Mybatis 通用mapper tk单独使用，自己独有+自带版本号-->
+        <!--Mybatis 通用 mapper tk单独使用，自己独有+自带版本号-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>

@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * 两个独立的微服务之间的调用
  * 如何让 80 端口调用 8001 端口呢
  * RestTemplate API 提供了多种便捷的访问远程 Http 服务的方法
- * 是一种简单便捷的访问 restful 服务的模板类，是 Spring提供的用于访问 Rest服务的客户端模板工具集
+ * 是一种简单便捷的访问 restful 服务的模板类，是 Spring 提供的用于访问 Rest服务的客户端模板工具集
  * 使用 restTemplate 访问 restful接口非常的简单粗暴无脑。
  * getForEnity && getForObject
  *
