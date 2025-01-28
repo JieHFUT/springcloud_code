@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FeignConfig {
+    // 修改 Retryer 内属性实现重试
     @Bean
     public Retryer myRetryer() {
 
@@ -27,7 +28,7 @@ public class FeignConfig {
     }
 
     /**
-     * 对请求和响应进行 GZIP压缩
+     * 对请求和响应进行 GZIP压缩 - yml
      * Spring Cloud OpenFeign支持对请求和响应进行 GZIP压缩，以减少通信过程中的性能损耗。
      * 通过下面的两个参数设置，就能开启请求与相应的压缩功能：
      * spring.cloud.openfeign.compression.request.enabled=true
@@ -44,7 +45,9 @@ public class FeignConfig {
 
 
     /**
-     * Feign 提供了日志打印功能，我们可以通过配置来调整日志级别，
+     *
+     *
+     * Feign 提供了日志打印功能，我们可以通过配置来调整日志级别 - yml
      * 从而了解 Feign 中 Http 请求的细节，
      * 说白了就是对 Feign接口的调用情况进行监控和输出
      * public enum Level {

@@ -27,7 +27,7 @@ public class RestTemplateConfig {
     }
 
 
-    // 进行切换负载均衡的模式
+    // 默认是轮询访问，现在进行切换-更改负载均衡策略为客户端进行随机访问
     @Bean
     ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment,
                                                             LoadBalancerClientFactory loadBalancerClientFactory) {
@@ -35,15 +35,17 @@ public class RestTemplateConfig {
         // 将默认的轮询模式，修改为随机模式
         return new RandomLoadBalancer(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
     }
-
-    // RestTemplate 的配置类，将该类注入容器，获得组件
-    /* 这是默认的轮询访问
-    @Configuration
-    public class RestTemplateConfig {
-        @Bean
-        @LoadBalanced // 默认负载均衡方法：使用 @LoadBalanced 注解赋予 RestTemplate 负载均衡的能力
-        public RestTemplate restTemplate() {
-            return new RestTemplate();
-        }
-    }*/
 }
+
+
+// RestTemplate 的配置类，将该类注入容器，获得组件
+/* 这是默认的轮询访问
+@Configuration
+public class RestTemplateConfig {
+    @Bean
+    @LoadBalanced // 默认负载均衡方法：使用 @LoadBalanced 注解赋予 RestTemplate 负载均衡的能力
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+}*/
+
