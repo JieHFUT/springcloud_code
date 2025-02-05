@@ -55,9 +55,7 @@ public class FeignConfig {
      *     FULL - Log the headers, body, and metadata for both requests and responses.
      * }
      *
-     *
      * 1.配置日志 bean 组件
-     *
      * 2.在 .yml 中配置开启 feign 日志的客户端
      * 3.后台日志查看
      *   （1）触发请求响应的压缩功能：
