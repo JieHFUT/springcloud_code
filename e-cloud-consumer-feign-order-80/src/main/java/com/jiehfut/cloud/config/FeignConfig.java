@@ -58,6 +58,7 @@ public class FeignConfig {
      * 1.配置日志 bean 组件
      * 2.在 .yml 中配置开启 feign 日志的客户端
      * 3.后台日志查看
+     *
      *   （1）触发请求响应的压缩功能：
      *     ---> GET http://cloud-payment-service/pay/get/6 HTTP/1.1
      *     Accept-Encoding: gzip
