@@ -72,6 +72,7 @@ public class FeignConfig {
      */
 
 
+
     // 配置日志 bean 组件
     @Bean
     Logger.Level feignLoggerLevel() {
