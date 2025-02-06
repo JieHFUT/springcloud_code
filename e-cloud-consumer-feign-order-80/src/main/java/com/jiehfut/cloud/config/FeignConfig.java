@@ -70,9 +70,7 @@ public class FeignConfig {
      *   （2）看到三次请求，openfeign 的重试请求
      * 4.
      */
-
     // 配置日志 bean 组件
-
     @Bean
     Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
