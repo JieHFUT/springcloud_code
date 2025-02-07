@@ -65,6 +65,7 @@ public class FeignConfig {
      *     Accept-Encoding: gzip
      *     Accept-Encoding: deflate
      *
+     *
      *     ---> END HTTP (0-byte body)
      *     <--- ERROR SocketTimeoutException: Read timed out (4254ms)
      *     ava.net.SocketTimeoutException: Read timed out
