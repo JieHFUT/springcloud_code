@@ -63,9 +63,6 @@ public class FeignConfig {
      *   （1）触发请求响应的压缩功能：
      *     ---> GET http://cloud-payment-service/pay/get/6 HTTP/1.1
      *     Accept-Encoding: gzip
-     *
-     *
-     *
      *     Accept-Encoding: deflate
      *     ---> END HTTP (0-byte body)
      *
