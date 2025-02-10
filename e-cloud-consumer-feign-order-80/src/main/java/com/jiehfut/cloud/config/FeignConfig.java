@@ -55,6 +55,8 @@ public class FeignConfig {
      *     FULL - Log the headers, body, and metadata for both requests and responses.
      * }
      *
+     *
+     *
      * 1.配置日志 bean 组件
      * 2.在 .yml 中配置开启 feign 日志的客户端
      * 3.后台日志查看
@@ -67,6 +69,7 @@ public class FeignConfig {
      *     <--- ERROR SocketTimeoutException: Read timed out (4254ms)
      *     ava.net.SocketTimeoutException: Read timed out
      *   （2）看到三次请求，openfeign 的重试请求
+     *
      */
 
 
