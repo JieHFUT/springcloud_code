@@ -64,6 +64,8 @@ public class FeignConfig {
      *     ---> GET http://cloud-payment-service/pay/get/6 HTTP/1.1
      *     Accept-Encoding: gzip
      *
+     *
+     *
      *     Accept-Encoding: deflate
      *     ---> END HTTP (0-byte body)
      *
