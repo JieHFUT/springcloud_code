@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderNacosController {
 
+
     @Resource
     private RestTemplate restTemplate;
 
