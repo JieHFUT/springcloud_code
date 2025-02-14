@@ -15,7 +15,6 @@ public class OrderNacosController {
     private RestTemplate restTemplate;
 
     @Value("${service-url.nacos-user-service}")
-
     private String serverURL;
 
     @GetMapping("/consumer/pay/nacos/{id}")
