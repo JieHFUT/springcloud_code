@@ -17,12 +17,14 @@ public class OrderNacosController {
     @Value("${service-url.nacos-user-service}")
     private String serverURL;
 
+
     @GetMapping("/consumer/pay/nacos/{id}")
     public String paymentInfo(@PathVariable("id") Integer id) {
 
         String result = restTemplate.getForObject(serverURL + "/pay/nacos/" + id, String.class);
         return result + "\t" + " 我是 OrderNacosController83 调用者...";
     }
+
 
 
 }
