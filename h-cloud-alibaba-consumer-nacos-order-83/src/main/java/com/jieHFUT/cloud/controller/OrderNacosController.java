@@ -22,5 +22,7 @@ public class OrderNacosController {
         String result = restTemplate.getForObject(serverURL + "/pay/nacos/" + id, String.class);
         return result + "\t" + " 我是 OrderNacosController83 调用者...";
     }
+
+
     
 }
