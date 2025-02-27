@@ -29,6 +29,7 @@ public class Swagger3Config {
         return GroupedOpenApi.builder().group("客户微服务模块").pathsToMatch("/customer/**", "/customers").build();
     }*/
 
+
     @Bean // 文档描述说明
     public OpenAPI docsOpenApi() {
         return new OpenAPI()
