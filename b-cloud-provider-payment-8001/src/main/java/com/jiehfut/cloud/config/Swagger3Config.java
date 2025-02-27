@@ -42,4 +42,6 @@ public class Swagger3Config {
                         .description("www.jiehfut.com")
                         .url("https://yiyan.baidu.com/"));
     }
+
 }
+
