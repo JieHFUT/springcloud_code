@@ -13,10 +13,12 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class Swagger3Config {
+
     @Bean
     public GroupedOpenApi PayApi() {
         return GroupedOpenApi.builder().group("支付微服务模块").pathsToMatch("/pay/**").build();
     }
+
     @Bean
     public GroupedOpenApi OtherApi() {
         return GroupedOpenApi.builder().group("其它微服务模块").pathsToMatch("/other/**", "/others").build();
@@ -26,7 +28,6 @@ public class Swagger3Config {
     {
         return GroupedOpenApi.builder().group("客户微服务模块").pathsToMatch("/customer/**", "/customers").build();
     }*/
-
 
     @Bean // 文档描述说明
     public OpenAPI docsOpenApi() {
