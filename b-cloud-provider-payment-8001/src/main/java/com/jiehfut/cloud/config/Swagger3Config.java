@@ -33,6 +33,7 @@ public class Swagger3Config {
     public OpenAPI docsOpenApi() {
         return new OpenAPI()
                 // 项目说明
+
                 .info(new Info().title("cloud2024")
                         .description("通用设计rest")
                         .version("v1.0"))
